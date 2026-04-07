@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="cabecalho">
+    <header id="home" class="cabecalho">
         <div class="logoContainer">
             <img src="./assets/Logo MyPhone.jpg" alt="logoMyphone" class="logo">
         </div>
@@ -19,11 +19,6 @@
                 <li><a href="#cocacola">Parceria Coca-Cola</a></li>
                 <li><a href="#acessorios">Acessórios</a></li>
                 <li><a href="#informatica">Informática</a></li>
-                <li>
-                    <a href="#" id="btn-abrir-carrinho" class="icone-carrinho">
-                    🛒 Carrinho <span id="contador-carrinho" class="badge-carrinho">0</span>
-                    </a>
-                </li>
             </ul>
         </nav>
     
@@ -406,6 +401,10 @@
     <button id="btn-topo" title="Voltar ao topo">↑</button>
 
     <script src="script.js"></script>
+    
+    <a href="#" id="btn-abrir-carrinho" class="icone-carrinho">
+                    🛒 Carrinho <span id="contador-carrinho" class="badge-carrinho">0</span>
+                    </a>
 
 </body>
 
@@ -419,13 +418,19 @@
 
             <div class="rodape-coluna">
                 <h3>Links Rápidos</h3>
-                <ul>
-                    <li><a href="#ofertas">Ofertas da Semana</a></li>
-                    <li><a href="#iwill">Linha iWill</a></li>
-                    <li><a href="#cocacola">Parceria Coca-Cola</a></li>
-                    <li><a href="#acessorios">Acessórios</a></li>
-                    <li><a href="#informatica">Informática</a></li>
-                </ul>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#acessorios">Acessórios</a></li>
+                <li><a href="#informatica">Informática</a></li>
+                <li><a href="#iwill">Produtos iWill</a></li>
+                <li><a href="#cocacola">Parceria Coca-Cola</a></li>
+                <li>
+                    <a href="#" id="btn-abrir-carrinho" class="icone-carrinho">
+                        🛒 Carrinho <span id="contador-carrinho" class="badge-carrinho">0</span>
+                    </a>
+                </li>
+            </ul>
             </div>
 
            <div class="rodape-coluna">
