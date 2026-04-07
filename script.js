@@ -76,19 +76,19 @@ botoesComprar.forEach(botao => {
         atualizarCarrinho();
         console.log(nome + " adicionado!");
 
+        // Feedback visual no contador (sem alert chato)
         const contador = document.getElementById('contador-carrinho');
+        contador.style.transition = '0.3s';
         contador.style.transform = 'scale(1.5)'; 
-        contador.style.backgroundColor = '#ff0000';
 
         setTimeout(() => {
             contador.style.transform = 'scale(1)'; 
-            contador.style.backgroundColor = '#ff0000'; 
         }, 300);
     });
 });
 
 // =========================================
-// 3. FINALIZAR COMPRA DIRETO NO WHATSAPP
+// 3. FINALIZAR COMPRA COM ESCALA 12x36
 // =========================================
 const btnFinalizar = document.querySelector('.btn-finalizar-compra');
 
@@ -99,7 +99,20 @@ if (btnFinalizar) {
             return;
         }
 
-        let textoPedido = "Olá! Gostaria de finalizar o seguinte pedido pelo site:\n\n";
+        // Lógica de Escala para saber quem recebe o pedido
+        const zapNayara = "5534997340117"; 
+        const zapTamires = "5534999999992"; 
+
+        const dataBase = new Date(2026, 3, 7); 
+        const hoje = new Date();
+        hoje.setHours(0, 0, 0, 0); 
+
+        const diferencaDias = Math.floor((hoje - dataBase) / (1000 * 60 * 60 * 24));
+
+        let zapPlantao = (diferencaDias % 2 === 0) ? zapNayara : zapTamires;
+        let nomePlantao = (diferencaDias % 2 === 0) ? "Nayara" : "Tamires";
+
+        let textoPedido = `Olá ${nomePlantao}! Gostaria de finalizar o seguinte pedido pelo site:\n\n`;
         let total = 0;
 
         itensNoCarrinho.forEach(item => {
@@ -110,7 +123,7 @@ if (btnFinalizar) {
         textoPedido += `\n*Total a pagar: R$ ${total.toFixed(2).replace('.', ',')}*`;
 
         const textoFormatado = encodeURIComponent(textoPedido);
-        window.open(`https://wa.me/5534998000828?text=${textoFormatado}`, '_blank');
+        window.open(`https://wa.me/${zapPlantao}?text=${textoFormatado}`, '_blank');
     });
 }
 
@@ -134,14 +147,14 @@ if (btnTopo) {
 }
 
 // =========================================
-// 5. ABRIR CARRINHO PELO MENU (Agora só abre aqui!)
+// 5. ABRIR CARRINHO PELO MENU
 // =========================================
 const btnAbrirMenu = document.getElementById('btn-abrir-carrinho');
 
 if (btnAbrirMenu) {
     btnAbrirMenu.addEventListener('click', function(event) {
         event.preventDefault(); 
-        carrinho.style.right = '0'; // Aqui ele continua abrindo quando o usuário clica no ícone
+        carrinho.style.right = '0'; 
     });
 }
 
@@ -162,7 +175,7 @@ if (btnLimpar) {
 }
 
 // =========================================
-// LÓGICA DA ESCALA 12x36 (NAYARA E TAMIRES)
+// LÓGICA DA ESCALA 12x36 (BOTÕES DE CONTATO)
 // =========================================
 const botaoVendas = document.getElementById('btn-whatsapp-vendas');
 const botaoAssistencia = document.getElementById('btn-whatsapp-assistencia');
@@ -193,13 +206,5 @@ function chamarNoZap(event, setor) {
 }
 
 if (botaoVendas) {
-    botaoVendas.addEventListener('click', function(e) { 
-        chamarNoZap(e, "vendas"); 
-    });
-}
-
-if (botaoAssistencia) {
-    botaoAssistencia.addEventListener('click', function(e) { 
-        chamarNoZap(e, "assistencia"); 
-    });
+    botao
 }
